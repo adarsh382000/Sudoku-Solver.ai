@@ -3,3 +3,4 @@ opencv-contrib-python-headless
 tensorflow-cpu
 imutils
 numpy == 1.20.3
+scipy
