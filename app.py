@@ -6,7 +6,6 @@ import os
 import cv2
 import imutils
 import numpy as np
-import matplotlib.pyplot as plt
 import tensorflow
 from imutils.perspective import four_point_transform
 from tensorflow.keras.models import Sequential
