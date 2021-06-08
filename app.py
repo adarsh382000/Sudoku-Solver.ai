@@ -294,7 +294,7 @@ def main():
 
 def about():
     st.write("**Sudoku_solver.ai** is an AI Powered application")
-    st.wrtie("It is based upon Convolutional Neural Networks")
+    st.write("It is based upon Convolutional Neural Networks")
     st.write("The algorithm has four stages: Extracting the sudoku from raw image -> Getting number from each cell -> Sloving the Sudoku -> Outputting the Sudoku")
 
     st.write('''The GitHub repository: https://github.com/adarsh382000/Sudoku-Solver.ai''')
