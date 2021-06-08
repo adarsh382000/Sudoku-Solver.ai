@@ -17,7 +17,6 @@ from tensorflow.keras.layers import Dense
 from tensorflow.keras.layers import Dropout
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.datasets import mnist
-from sklearn.preprocessing import LabelBinarizer
 from skimage.segmentation import clear_border
 from tensorflow.keras.preprocessing.image import img_to_array
 import sys
