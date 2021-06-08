@@ -33,27 +33,6 @@ def output(a):
 
 N = 9
 
-def print_field(field):
-    if not field:
-        output("No solution")
-        return
-    for i in range(N):
-        for j in range(N):
-            cell = field[i][j]
-            if cell == 0 or isinstance(cell, set):
-                output('.')
-            else:
-                output(cell)
-            if (j + 1) % 3 == 0 and j < 8:
-                output(' |')
-
-            if j != 8:
-                output(' ')
-        output('\n')
-        if (i + 1) % 3 == 0 and i < 8:
-            output("- - - + - - - + - - -\n")
-     return gridans
-
 def read(field):
     """ Read field into state (replace 0 with set of possible values) """
 
