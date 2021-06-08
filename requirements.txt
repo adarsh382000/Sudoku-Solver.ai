@@ -2,5 +2,6 @@ streamlit
 opencv-contrib-python-headless
 tensorflow-cpu
 imutils
+sklearn
 numpy == 1.20.3
 scipy
