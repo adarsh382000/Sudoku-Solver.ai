@@ -278,7 +278,7 @@ def main():
         
     	uploaded_file = st.file_uploader("Upload image", type=['jpeg', 'png', 'jpg', 'webp'])
 
-    	if image_file is not None:
+    	if uploaded_file is not None:
 
                 file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
 
