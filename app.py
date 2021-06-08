@@ -240,6 +240,7 @@ def detect(im):
   puz = puzzle.copy()
 
   a,b = 0,0
+  print(grid)
 
   for i in loc:
    b = 0
