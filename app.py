@@ -23,7 +23,7 @@ import sys
 from copy import deepcopy
 
 try:
-    model = tensorflow.keras.models.open('model.h5')
+    model = tensorflow.keras.models.load_model('model.h5')
 except Exception:
     st.write("Error loading predictive model")
     
