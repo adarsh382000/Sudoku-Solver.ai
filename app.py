@@ -30,9 +30,8 @@ except Exception:
 def output(a):
     sys.stdout.write(str(a))
 
-N = 9
 
-field = grid
+N = 9
 
 def print_field(field):
     if not field:
@@ -41,7 +40,6 @@ def print_field(field):
     for i in range(N):
         for j in range(N):
             cell = field[i][j]
-            grid[i][j] = cell
             if cell == 0 or isinstance(cell, set):
                 output('.')
             else:
@@ -54,6 +52,7 @@ def print_field(field):
         output('\n')
         if (i + 1) % 3 == 0 and i < 8:
             output("- - - + - - - + - - -\n")
+     return gridans
 
 def read(field):
     """ Read field into state (replace 0 with set of possible values) """
@@ -67,7 +66,7 @@ def read(field):
 
     return state
 
-state = read(field)
+
 
 
 def done(state):
@@ -261,8 +260,13 @@ def detect(im):
     for j in range(9):
       if grid[i][j] == 0:
         ans.append((i,j))
+  
+
+  field = grid
+
+  state = read(field)
          
-  print_field(solve(state))
+  grid = solve(state)
 
   puz = puzzle.copy()
 
