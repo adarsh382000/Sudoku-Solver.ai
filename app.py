@@ -285,7 +285,7 @@ def main():
                 image = cv2.imdecode(file_bytes, 1)
 
                 if st.button("Process"):
-                   result_img = detect(image=image)
+                   result_img = detect(image)
                    st.image(result_img, use_column_width = True)
 
     elif choice == "About":
