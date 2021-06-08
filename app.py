@@ -285,11 +285,8 @@ def main():
                 image = cv2.imdecode(file_bytes, 1)
 
                 if st.button("Process"):
-                
-                # result_img is the image with rectangle drawn on it (in case there are faces detected)
-                # result_faces is the array with co-ordinates of bounding box(es)
-    			result_img = detect(image=image)
-    			st.image(result_img, use_column_width = True)
+                   result_img = detect(image=image)
+    		   st.image(result_img, use_column_width = True)
 
     elif choice == "About":
     	about()
