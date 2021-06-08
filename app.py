@@ -184,6 +184,7 @@ def detect(im):
  
   puzzle = four_point_transform(im, puzzleCnt.reshape(4, 2))
   warped = four_point_transform(gray, puzzleCnt.reshape(4, 2))
+  st.image(puzzle, use_column_width = True)
 
   stepX = warped.shape[1] // 9
   stepY = warped.shape[0] // 9
@@ -229,6 +230,9 @@ def detect(im):
    
    
     grid.append(tmp)
+   
+  for i in grid:
+   st.write(i)
       
 
   field = grid
@@ -239,8 +243,11 @@ def detect(im):
 
   puz = puzzle.copy()
 
+  for i in grid:
+   st.write(i)
+
   a,b = 0,0
-  print(grid)
+  
 
   for i in loc:
    b = 0
