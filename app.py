@@ -253,7 +253,7 @@ def detect(im):
     textY = int((j[3] - j[1]) * -0.2)
     textX += j[0]
     textY += j[3]
-    cv2.putText(puz, str(grid[a][b]), (textX, textY),cv2.FONT_HERSHEY_SIMPLEX, StepX/2, (0,0,0), 2)
+    cv2.putText(puz, str(grid[a][b]), (textX, textY),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 2)
     b += 1
    a += 1
   
