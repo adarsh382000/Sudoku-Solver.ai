@@ -286,7 +286,7 @@ def main():
 
                 if st.button("Process"):
                    result_img = detect(image=image)
-    		   st.image(result_img, use_column_width = True)
+                   st.image(result_img, use_column_width = True)
 
     elif choice == "About":
     	about()
