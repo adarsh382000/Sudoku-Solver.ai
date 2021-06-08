@@ -184,7 +184,6 @@ def detect(im):
  
   puzzle = four_point_transform(im, puzzleCnt.reshape(4, 2))
   warped = four_point_transform(gray, puzzleCnt.reshape(4, 2))
-  st.image(puzzle, use_column_width = True)
 
   stepX = warped.shape[1] // 9
   stepY = warped.shape[0] // 9
@@ -218,15 +217,15 @@ def detect(im):
         (h, w) = thresh.shape
         percentFilled = cv2.countNonZero(mask) / float(w * h)
       
-      if percentFilled < 0.03:
-        tmp.append(0)
-      else:
-        digit = cv2.bitwise_and(thresh, thresh, mask=mask)
-        roi = cv2.resize(digit,(28, 28))
-        roi = roi.astype("float") / 255.0
-        roi = img_to_array(roi)
-        roi = np.expand_dims(roi, axis=0)
-        tmp.append(model.predict(roi).argmax())
+        if percentFilled < 0.03:
+         tmp.append(0)
+        else:
+         digit = cv2.bitwise_and(thresh, thresh, mask=mask)
+         roi = cv2.resize(digit,(28, 28))
+         roi = roi.astype("float") / 255.0
+         roi = img_to_array(roi)
+         roi = np.expand_dims(roi, axis=0)
+         tmp.append(model.predict(roi).argmax())
    
    
     grid.append(tmp)
