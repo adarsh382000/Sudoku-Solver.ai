@@ -176,7 +176,7 @@ def detect(im):
       break
       
   if puzzleCnt is None:
-    return -1
+    return None
   else:
     output = im.copy()
     cv2.drawContours(output, [puzzleCnt],-1,(0, 255, 0), 2)
@@ -280,28 +280,21 @@ def main():
 
                 if st.button("Process"):
                    result_img = detect(image)
-                   if result_img == -1:
-                      st.write("No Sudoku found!! please relaod the page and try again with another image")
-                   else:
+                   if result_img is not None:
                       st.write("If some numbers mismatch,try again with different photo")
                       st.image(result_img, use_column_width = True)
+                   else:
+                      st.write("No Sudoku found!! please reload the page and try again with another image")
 
     elif choice == "About":
     	about()
 
 def about():
-    st.write(
-		'''
-		**Sudoku_solver.ai** is an AI Powered application
-		It is based upon Convolutional Neural Networks 
-		The algorithm has four stages:
-			1. Extracting the sudoku from raw image
-                        2. Getting number from each cell
-                        3. Sloving the Sudoku
-                        4. Outputting the Sudoku
+    st.write("**Sudoku_solver.ai** is an AI Powered application")
+    st.wrtie("It is based upon Convolutional Neural Networks")
+    st.write("The algorithm has four stages: Extracting the sudoku from raw image -> Getting number from each cell -> Sloving the Sudoku -> Outputting the Sudoku")
 
-    The GitHub repository: https://github.com/adarsh382000/Sudoku-Solver.ai 
-    ''')
+    st.write('''The GitHub repository: https://github.com/adarsh382000/Sudoku-Solver.ai''')
     
 
 
