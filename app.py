@@ -229,9 +229,6 @@ def detect(im):
    
    
     grid.append(tmp)
-   
-  for i in grid:
-   st.write(i)
       
 
   field = grid
@@ -242,8 +239,6 @@ def detect(im):
 
   puz = puzzle.copy()
 
-  for i in grid:
-   st.write(i)
 
   a,b = 0,0
   
@@ -266,6 +261,7 @@ def detect(im):
 def main():
     st.title("Sudoku Solver.ai ")
     st.write("**Using the Convolutional Neural Network**")
+    st.write("*Please use clear and lightened image,use flash for clicking photos*")
 
     activities = ["Home", "About"]
     choice = st.sidebar.selectbox("Pick something fun", activities)
@@ -284,12 +280,29 @@ def main():
 
                 if st.button("Process"):
                    result_img = detect(image)
-                   st.image(result_img, use_column_width = True)
+                   if result_img == -1:
+                      st.write("No Sudoku found!! please relaod the page and try again with another image")
+                   else:
+                      st.write("If some numbers mismatch,try again with different photo")
+                      st.image(result_img, use_column_width = True)
 
     elif choice == "About":
     	about()
 
+def about():
+    st.write(
+		'''
+		**Sudoku_solver.ai** is an AI Powered application
+		It is based upon Convolutional Neural Networks 
+		The algorithm has four stages:
+			1. Extracting the sudoku from raw image
+                        2. Getting number from each cell
+                        3. Sloving the Sudoku
+                        4. Outputting the Sudoku
 
+    The GitHub repository: https://github.com/adarsh382000/Sudoku-Solver.ai 
+    ''')
+    
 
 
 if __name__ == "__main__":
