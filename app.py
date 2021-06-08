@@ -198,7 +198,6 @@ def detect(im):
     loc.append(tmp)
    
   grid = []
-  printgrid = []
 
   for i in range(9):
     tmp = []
@@ -211,7 +210,6 @@ def detect(im):
       
       if len(cnts) == 0:
         tmp.append(0)
-        printgrid.append(loc[i][j])
       else:
         c = max(cnts, key=cv2.contourArea)
         mask = np.zeros(thresh.shape, dtype="uint8")
@@ -221,7 +219,6 @@ def detect(im):
       
       if percentFilled < 0.03:
         tmp.append(0)
-        printgrid.append(loc[i][j])
       else:
         digit = cv2.bitwise_and(thresh, thresh, mask=mask)
         roi = cv2.resize(digit,(28, 28))
@@ -234,13 +231,6 @@ def detect(im):
     grid.append(tmp)
       
 
-  ans = []
-  for i in range(9):
-    for j in range(9):
-      if grid[i][j] == 0:
-        ans.append((i,j))
-  
-
   field = grid
 
   state = read(field)
@@ -249,17 +239,18 @@ def detect(im):
 
   puz = puzzle.copy()
 
+  a,b = 0,0
 
-  k = 0
-  for i in printgrid:
-    textX = int((i[2] - i[0]) * 0.33)
-    textY = int((i[3] - i[1]) * -0.2)
-    textX += i[0]
-    textY += i[3]
-    x = ans[k][0]
-    y = ans[k][1]
-    cv2.putText(puz, str(grid[x][y]), (textX, textY),cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,0,0), 2)
-    k += 1
+  for i in loc:
+   b = 0
+   for j in i:
+    textX = int((j[2] - j[0]) * 0.33)
+    textY = int((j[3] - h[1]) * -0.2)
+    textX += j[0]
+    textY += h[3]
+    cv2.putText(puz, str(grid[a][b]), (textX, textY),cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,0,0), 2)
+    b += 1
+   a += 1
   
   return puz
   
