@@ -276,11 +276,14 @@ def main():
 
     	st.write("Go to the About section from the sidebar to learn more about it.")
         
-    	image_file = st.file_uploader("Upload image", type=['jpeg', 'png', 'jpg', 'webp'])
+    	uploaded_file = st.file_uploader("Upload image", type=['jpeg', 'png', 'jpg', 'webp'])
 
     	if image_file is not None:
 
-    		image = cv2.imread(image_file)
+                file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
+
+                image = cv2.imdecode(file_bytes, 1)
+
 
     		if st.button("Process"):
                 
