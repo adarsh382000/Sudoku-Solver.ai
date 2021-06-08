@@ -237,6 +237,9 @@ def detect(im):
          
   grid = solve(state)
 
+  if grid is None:
+   return None
+
   puz = puzzle.copy()
 
 
